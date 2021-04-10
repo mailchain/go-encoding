@@ -12,41 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package encoding
+package encodingtest
 
 import (
-	"testing"
-
-	"github.com/stretchr/testify/assert"
+	"github.com/mailchain/mailchain/encoding"
 )
 
-// Test PublicKeyEncoding
-func TestPublicKeyEncoding(t *testing.T) {
-	tests := []struct {
-		name string
-		in   string
-		want bool
-	}{
-		{
-			"PublicKeyEncoding-empty-false",
-			"",
-			false,
-		},
-		{
-			"PublicKeyEncoding-True",
-			KindHex,
-			true,
-		},
+// MustDecodeBase32 decodes a Base32 string
+// It panics for invalid input.
+func MustDecodeBase32(input string) []byte {
+	dec, err := encoding.DecodeBase32(input)
+	if err != nil {
+		panic(err)
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			pkEncod := PublicKeyEncoding()
-			_, got := pkEncod[tt.in]
-
-			if !assert.Equal(t, tt.want, got) {
-				t.Errorf("PublicKeyEncoding() = %v, want %v", got, tt.want)
-			}
-		})
-	}
+	return dec
 }
