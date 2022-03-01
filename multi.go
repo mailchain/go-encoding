@@ -27,3 +27,21 @@ func Decode(encoding, src string) ([]byte, error) {
 		return nil, errUnsupportedEncoding
 	}
 }
+
+// Encode returns the bytes encoded as requested by the encoding parameter.
+func Encode(encoding string, src []byte) (string, error) {
+	switch strings.ToLower(encoding) {
+	case KindBase58:
+		return EncodeBase58(src), nil
+	case KindBase32:
+		return EncodeBase32(src), nil
+	case KindHex:
+		return EncodeHex(src), nil
+	case KindHex0XPrefix:
+		return EncodeHexZeroX(src), nil
+	case KindMnemonicAlgorand:
+		return EncodeMnemonicAlgorand(src)
+	default:
+		return "", errUnsupportedEncoding
+	}
+}
