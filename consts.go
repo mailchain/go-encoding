@@ -28,6 +28,10 @@ const (
 	KindBase32 = "base32/plain"
 	// KindBase58 encoding value.
 	KindBase58 = "base58/plain"
+	// KindBase64 encoding value.
+	KindBase64 = "base64/plain"
+	// KindBase64URL encoding value.
+	KindBase64URL = "base64/url"
 	// KindBase58SubstrateAddress encoding value.
 	KindBase58SubstrateAddress = "base58/ss58-address"
 	// KindMnemonicAlgorand encoding value.

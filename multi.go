@@ -13,6 +13,10 @@ var errUnsupportedEncoding = errors.New("encoding not supported")
 // If the input is kind is unknown or the input is malformed for the decode method it returns an error.
 func Decode(encoding, src string) ([]byte, error) {
 	switch strings.ToLower(encoding) {
+	case KindBase64:
+		return DecodeBase64(src)
+	case KindBase64URL:
+		return DecodeBase64URL(src)
 	case KindBase58:
 		return DecodeBase58(src)
 	case KindBase32:
@@ -31,6 +35,10 @@ func Decode(encoding, src string) ([]byte, error) {
 // Encode returns the bytes encoded as requested by the encoding parameter.
 func Encode(encoding string, src []byte) (string, error) {
 	switch strings.ToLower(encoding) {
+	case KindBase64URL:
+		return EncodeBase64URL(src), nil
+	case KindBase64:
+		return EncodeBase64(src), nil
 	case KindBase58:
 		return EncodeBase58(src), nil
 	case KindBase32:
