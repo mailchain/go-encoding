@@ -16,9 +16,8 @@ package encoding
 
 import (
 	"encoding/hex"
+	"fmt"
 	"strings"
-
-	"github.com/pkg/errors"
 )
 
 // EncodeHexZeroX encodes src into "0x"+hex.Encode. As a convenience, it returns the encoding type used,
@@ -38,11 +37,11 @@ func EncodeHexZeroX(src []byte) (encoded string) {
 // If the input is malformed, DecodeHexZeroX returns an error.
 func DecodeHexZeroX(in string) ([]byte, error) {
 	if in == "" {
-		return nil, errors.Errorf("empty hex string")
+		return nil, fmt.Errorf("empty hex string")
 	}
 
 	if !strings.HasPrefix(in, "0x") {
-		return nil, errors.Errorf("missing \"0x\" prefix from hex string")
+		return nil, fmt.Errorf("missing \"0x\" prefix from hex string")
 	}
 
 	return hex.DecodeString(in[2:])
