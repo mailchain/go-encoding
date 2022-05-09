@@ -1,0 +1,14 @@
+{
+	"root": "encoding",
+	"projectType": "library",
+	"sourceRoot": "encoding",
+	"targets": {
+		"test": {
+			"executor": "@nx-go/nx-go:test"
+		},
+		"lint": {
+			"executor": "@nx-go/nx-go:lint"
+		}
+	},
+	"tags": []
+}
