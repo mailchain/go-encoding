@@ -35,17 +35,13 @@ func EncodeBase64(src []byte) string {
 }
 
 // DecodeBase64URL returns the bytes represented by the base64 string src.
-//
-// DecodeBase64URL expects that src contains only base64 characters.
-// If the input is malformed, DecodeBase64URL returns an error.
+// This method decodes without padding.
 func DecodeBase64URL(src string) ([]byte, error) {
-	return base64.URLEncoding.DecodeString(src)
+	return base64.RawURLEncoding.DecodeString(src)
 }
 
 // EncodeBase64URL returns the string represented by the base58 byte src.
-//
-// EncodeBase64URL expects that src contains only base58 byte.
-// If the input is malformed, EncodeBase64URL returns an error.
+// This method encodes without padding.
 func EncodeBase64URL(src []byte) string {
-	return base64.URLEncoding.EncodeToString(src)
+	return base64.RawURLEncoding.EncodeToString(src)
 }
