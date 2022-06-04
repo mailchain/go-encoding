@@ -36,4 +36,6 @@ const (
 	KindBase58SubstrateAddress = "base58/ss58-address"
 	// KindMnemonicAlgorand encoding value.
 	KindMnemonicAlgorand = "mnemonic/algorand"
+	// KindUTF8 encoding value.
+	KindUTF8 = "text/utf-8"
 )
