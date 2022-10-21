@@ -25,8 +25,6 @@ func Decode(encoding, src string) ([]byte, error) {
 		return DecodeHex(src)
 	case KindHex0XPrefix:
 		return DecodeHexZeroX(src)
-	case KindMnemonicAlgorand:
-		return DecodeMnemonicAlgorand(src)
 	case KindUTF8:
 		return DecodeUTF8(src), nil
 	default:
@@ -49,8 +47,6 @@ func Encode(encoding string, src []byte) (string, error) {
 		return EncodeHex(src), nil
 	case KindHex0XPrefix:
 		return EncodeHexZeroX(src), nil
-	case KindMnemonicAlgorand:
-		return EncodeMnemonicAlgorand(src)
 	case KindUTF8:
 		return EncodeUTF8(src), nil
 	default:
