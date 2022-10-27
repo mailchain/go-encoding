@@ -1,0 +1,22 @@
+on:
+  pull_request_target:
+jobs:
+  sync-repo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - uses: mailchain/copybara-action@latest
+        with:
+          ssh_key: ${{ secrets.SSH_KEY }}
+          access_token: ${{ secrets.ACCESS_TOKEN }}
+          sot_repo: mailchain/monorepo
+          destination_repo: mailchain/go-encoding
+          pr_include: "**"
+          pr_exclude: ".github/**"
+          push_include: "packages/go/encoding/**"
+          push_exclude: ".github/**"
+          pr_move: |
+            ||packages/go/encoding
