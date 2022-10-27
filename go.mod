@@ -1,4 +1,4 @@
-module github.com/mailchain/encoding
+module github.com/mailchain/go-encoding
 
 go 1.18
 

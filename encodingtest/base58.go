@@ -1,7 +1,7 @@
 package encodingtest
 
 import (
-	"github.com/mailchain/encoding"
+	"github.com/mailchain/go-encoding"
 )
 
 // MustDecodeBase58 decodes a Base58 string

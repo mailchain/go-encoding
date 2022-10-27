@@ -1,7 +1,7 @@
 package encodingtest
 
 import (
-	"github.com/mailchain/encoding"
+	"github.com/mailchain/go-encoding"
 )
 
 // MustDecodeHex decodes a hex string. It panics for invalid input.

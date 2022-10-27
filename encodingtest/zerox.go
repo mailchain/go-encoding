@@ -1,6 +1,6 @@
 package encodingtest
 
-import "github.com/mailchain/encoding"
+import "github.com/mailchain/go-encoding"
 
 // MustDecodeHexZeroX decodes a hex string. It panics for invalid input.
 func MustDecodeHexZeroX(in string) []byte {
