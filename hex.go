@@ -34,7 +34,6 @@ func DecodeHexZeroX(in string) ([]byte, error) {
 }
 
 // EncodeHex returns the hexadecimal encoding of src.
-//
 func EncodeHex(src []byte) string {
 	return hex.EncodeToString(src)
 }
